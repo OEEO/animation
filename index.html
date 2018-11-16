@@ -8,5 +8,42 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <script>
+      (function (doc, win) {
+        let docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+            let clientWidth = docEl.clientWidth || window.screen.width;
+            if (!clientWidth) return;
+            docEl.style.fontSize = clientWidth / 10 + 'px';
+            if (clientWidth > 750) {
+              docEl.style.fontSize = '50px';
+            }
+          };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+      })(document, window);
+
+      var wczModalControler = (function(bodyCls) {
+        var scrollTop;
+        return {
+          openModal: function() {
+            scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            document.body.classList.add(bodyCls);
+            document.body.style.top = -scrollTop + 'px';
+            return scrollTop;
+          },
+          cloneModal: function() {
+            document.body.classList.remove(bodyCls);
+            document.body.scrollTop = scrollTop;
+            document.documentElement.scrollTop = scrollTop;
+            return scrollTop;
+          }
+        };
+      })('modal-open');
+
+    </script>
   </body>
 </html>
