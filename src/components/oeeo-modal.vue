@@ -1,23 +1,31 @@
 <template>
-  <div class="index-page">
-    <com-nav @onNavItemClick="onNavItemClick"></com-nav>
+  <div class="oeeo-modal-com">
+    <div class="box" v-for="item in 100" :key="item">{{ item }}</div>
 
-    <component :is="curComponent"></component>
+    <transition name="fade">
+      <div v-if="showModal" class="modal-wrap" @click="closeTheModal" :style="{ top: scrollTop + 'px' }">
+        <div class="modal-content-wrap">
+          <div class="modal-content-item" v-for="item in 200" :key="item">{{ item }}</div>
+        </div>
+      </div>
+    </transition>
+
+    <div class="fixed-wrap">
+      <div class="control-wrap">
+        <button class="control-item" @click="showTheModal">显示模态框</button>
+        <button class="control-item" @click="closeTheModal">关闭模态框</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import oeeoModal from '../components/oeeo-modal'
-import comNav from '../components/common/com-nav'
-import sliderListWrap from '../components/slider-list-wrap'
 export default {
-  components: { oeeoModal, comNav, sliderListWrap },
-  name: 'index',
+  name: 'oeeo-modal-com',
   data () {
     return {
       showModal: false,
-      scrollTop: 0,
-      curComponent: 'oeeoModal'
+      scrollTop: 0
     }
   },
   methods: {
@@ -31,10 +39,6 @@ export default {
     closeTheModal () {
       this.showModal = false
       wczModalControler.cloneModal()
-    },
-    onNavItemClick (item) {
-      let name = item.pathName
-      this.curComponent = name
     }
   },
   mounted () {
@@ -44,7 +48,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .index-page {
+  .oeeo-modal-com {
     width: 100%;
     background-color: #fff;
     position: relative;
@@ -100,7 +104,7 @@ export default {
     }
     .control-wrap {
       position: absolute;
-      left: 0%;
+      left: 0;
       min-width: 100px;
       display: flex;
       flex-direction: column;
