@@ -2,7 +2,9 @@
   <div class="index-page">
     <com-nav @onNavItemClick="onNavItemClick"></com-nav>
 
-    <component :is="curComponent"></component>
+    <keep-alive>
+      <component :is="curComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
@@ -11,13 +13,13 @@ import oeeoModal from '../components/oeeo-modal'
 import comNav from '../components/common/com-nav'
 import sliderListWrap from '../components/slider-list-wrap'
 export default {
-  components: { oeeoModal, comNav, sliderListWrap },
+  components: { sliderListWrap, oeeoModal, comNav },
   name: 'index',
   data () {
     return {
       showModal: false,
       scrollTop: 0,
-      curComponent: 'oeeoModal'
+      curComponent: 'sliderListWrap'
     }
   },
   methods: {
