@@ -38,7 +38,7 @@ export default {
     },
     closeTheModal () {
       this.showModal = false
-      wczModalControler.cloneModal()
+      wczModalControler.closeModal()
     }
   },
   mounted () {

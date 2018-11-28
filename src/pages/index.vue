@@ -19,7 +19,7 @@ export default {
     return {
       showModal: false,
       scrollTop: 0,
-      curComponent: 'sliderListWrap'
+      curComponent: 'oeeo-modal'
     }
   },
   methods: {

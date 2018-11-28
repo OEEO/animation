@@ -18,7 +18,7 @@
             if (!clientWidth) return;
             docEl.style.fontSize = clientWidth / 10 + 'px';
             if (clientWidth > 750) {
-              docEl.style.fontSize = '50px';
+              docEl.style.fontSize = '75px';
             }
           };
         if (!doc.addEventListener) return;
@@ -26,7 +26,7 @@
         doc.addEventListener('DOMContentLoaded', recalc, false);
       })(document, window);
 
-      var wczModalControler = (function(bodyCls) {
+      window.wczModalControler = (function(bodyCls) {
         var scrollTop;
         return {
           openModal: function() {
@@ -35,7 +35,7 @@
             document.body.style.top = -scrollTop + 'px';
             return scrollTop;
           },
-          cloneModal: function() {
+          closeModal: function() {
             document.body.classList.remove(bodyCls);
             document.body.scrollTop = scrollTop;
             document.documentElement.scrollTop = scrollTop;
