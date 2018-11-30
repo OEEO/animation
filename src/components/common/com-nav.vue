@@ -1,6 +1,10 @@
 <template>
   <div class="com-nav">
-    <div class="nav-item" v-for="(item, index) in navArr" :key="index" @click="onNavItemClick(item)">{{ item.title }}</div>
+    <div class="nav-item"
+         v-for="(item, index) in navArr"
+         :key="index"
+         :class="{ active: curNavIndex === index }"
+         @click="onNavItemClick(item, index)">{{ item.title }}</div>
   </div>
 </template>
 
@@ -10,15 +14,19 @@ export default {
   data () {
     return {
       navArr: [
-        { title: '首页', pathName: 'oeeoModal' },
-        { title: '中间', pathName: 'slider-list-wrap' },
-        { title: '最后', pathName: 'oeeoModal' }
-      ]
+        { title: '弹出框', routerName: 'oeeoModal' },
+        { title: '图片蒙板切换', routerName: 'imgBannerToggle' },
+        { title: '滑动切换', routerName: 'sliderListWrap' }
+      ],
+      curNavIndex: 0
     }
   },
   methods: {
-    onNavItemClick (item) {
-      this.$emit('onNavItemClick', item)
+    onNavItemClick (item, index) {
+      this.curNavIndex = index
+      this.$router.push({
+        name: item.routerName
+      })
     }
   }
 }
@@ -26,13 +34,35 @@ export default {
 
 <style scoped lang="less">
   .com-nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
     display: flex;
-    width: 100%;
-    justify-content: space-around;
+    flex-direction: column;
+    width: 100px;
+    background-color: #888;
+    border-radius: 20px;
+    padding: 20px 0;
     .nav-item {
-      width: 30%;
-      background-color: green;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 0 10px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 15px;
       color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow:ellipsis;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover,
+      &.active {
+        background-color: #444;
+        transition: all 0.3s ease-in-out;
+      }
     }
   }
 </style>

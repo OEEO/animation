@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import utils from '../utils'
-import tab from './vux/tab/tab'
-import tabItem from './vux/tab/tab-item'
+import utils from '../utils/index'
+import tab from '../components/vux/tab/tab'
+import tabItem from '../components/vux/tab/tab-item'
 
 import 'swiper/dist/css/swiper.css'
 

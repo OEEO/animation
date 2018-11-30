@@ -3,15 +3,15 @@
     <com-nav @onNavItemClick="onNavItemClick"></com-nav>
 
     <keep-alive>
-      <component :is="curComponent"></component>
+      <router-view></router-view>
     </keep-alive>
   </div>
 </template>
 
 <script>
-import oeeoModal from '../components/oeeo-modal'
+import oeeoModal from './oeeo-modal'
 import comNav from '../components/common/com-nav'
-import sliderListWrap from '../components/slider-list-wrap'
+import sliderListWrap from './slider-list-wrap'
 export default {
   components: { sliderListWrap, oeeoModal, comNav },
   name: 'index',
