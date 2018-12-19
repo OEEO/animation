@@ -4,6 +4,7 @@ import index from '../pages/index'
 import imgBannerToggle from '../pages/img-banner-toggle'
 import oeeoModal from '../pages/oeeo-modal'
 import sliderListWrap from '../pages/slider-list-wrap'
+import slotTest from '../pages/slot-test'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
           path: '/sliderListWrap',
           name: 'sliderListWrap',
           component: sliderListWrap
+        },
+        {
+          path: '/slotTest',
+          name: 'slotTest',
+          component: slotTest
         }
       ]
     },

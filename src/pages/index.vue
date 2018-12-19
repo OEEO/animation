@@ -3,7 +3,14 @@
     <com-nav @onNavItemClick="onNavItemClick"></com-nav>
 
     <keep-alive>
-      <router-view></router-view>
+      <transition
+        :duration="200"
+        name="slide"
+        mode="in-out"
+        enter-active-class="slideLeft-enter-active"
+        leave-active-class="slideRight-leave-active">
+        <router-view></router-view>
+      </transition>
     </keep-alive>
   </div>
 </template>

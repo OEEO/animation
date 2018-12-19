@@ -3,7 +3,7 @@
     <div class="nav-item"
          v-for="(item, index) in navArr"
          :key="index"
-         :class="{ active: curNavIndex === index }"
+         :class="{ active: curRouteName === item.routerName }"
          @click="onNavItemClick(item, index)">{{ item.title }}</div>
   </div>
 </template>
@@ -16,9 +16,15 @@ export default {
       navArr: [
         { title: '弹出框', routerName: 'oeeoModal' },
         { title: '图片蒙板切换', routerName: 'imgBannerToggle' },
-        { title: '滑动切换', routerName: 'sliderListWrap' }
+        { title: '滑动切换', routerName: 'sliderListWrap' },
+        { title: 'slotTest', routerName: 'slotTest' }
       ],
       curNavIndex: 0
+    }
+  },
+  computed: {
+    curRouteName () {
+      return this.$route.name
     }
   },
   methods: {
@@ -28,6 +34,9 @@ export default {
         name: item.routerName
       })
     }
+  },
+  mounted () {
+
   }
 }
 </script>
