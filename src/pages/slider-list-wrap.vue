@@ -33,12 +33,8 @@ import utils from '../utils/index'
 import tab from '../components/vux/tab/tab'
 import tabItem from '../components/vux/tab/tab-item'
 
-import 'swiper/dist/css/swiper.css'
-
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
-
 export default {
-  components: { tab, tabItem, swiper, swiperSlide },
+  components: { tab, tabItem },
   name: 'slider-list-wrap',
   data () {
     let self = this

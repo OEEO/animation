@@ -4,9 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
 import LyTab from 'ly-tab'
 
 Vue.use(LyTab)
+
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 

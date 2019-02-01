@@ -17,7 +17,8 @@ export default {
         { title: '弹出框', routerName: 'oeeoModal' },
         { title: '图片蒙板切换', routerName: 'imgBannerToggle' },
         { title: '滑动切换', routerName: 'sliderListWrap' },
-        { title: 'slotTest', routerName: 'slotTest' }
+        { title: 'slotTest', routerName: 'slotTest' },
+        { title: '滑动banner', routerName: 'swiperBanner' },
       ],
       curNavIndex: 0
     }

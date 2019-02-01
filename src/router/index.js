@@ -5,6 +5,7 @@ import imgBannerToggle from '../pages/img-banner-toggle'
 import oeeoModal from '../pages/oeeo-modal'
 import sliderListWrap from '../pages/slider-list-wrap'
 import slotTest from '../pages/slot-test'
+import swiperBanner from '../pages/swiperBanner'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
           path: '/slotTest',
           name: 'slotTest',
           component: slotTest
+        },
+        {
+          path: '/swiperBanner',
+          name: 'swiperBanner',
+          component: swiperBanner
         }
       ]
     },
